@@ -1,2 +1,2 @@
 # The-Lurk-of-Evil
-Remaking the game
+Refazendo, de maneira mais inteligente, o jogo que eu fiz para entrar na FoG 
