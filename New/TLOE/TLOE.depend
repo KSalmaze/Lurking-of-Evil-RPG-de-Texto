@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1664679903 source:c:\github\the-lurk-of-evil\new\tloe\main.c
+1664682093 source:c:\github\the-lurk-of-evil\new\tloe\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 
