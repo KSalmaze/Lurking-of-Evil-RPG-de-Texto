@@ -3,50 +3,64 @@
 #include <string.h>
 #include <conio.h>
 
-void printmap (char map[11][50]);
+void printmap (char map[3][12][50],int z,int colider[3][10][20]);
 
 int main () {
-char oldchar='_';
-char map[11][50]={"__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________"};
+char oldchar=' ';
+//char map[11][50]={"__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________"};
+char map[3][12][50]={{"XXXXXXXXXXXXXX","X            X","X            X","X            X","X            X","X    XXXXXXXXX","X             ","X             ","XXXXXXXXXXXXXX"},{" XXXXXXXXXX     "," X        X     "," X        X     "," XXXXX    XXXXX "," X            X "," X            X ","                ","                "," XXXXXXXXXXXXXX "},{" XXXXXXXXXXXXXXXXXX"," X                X"," X                X"," XXXXX            X","     X            X","     XXXXXXXXX    X","                  X","                  X"," XXXXXXXXXXXXXXXXXX"}};
+int mapcolider[3][10][20]={{{0,0},{-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9},{-9,8,8,8,8,8,8,8,8,8,8,8,8,-9,-9},{-9,8,8,8,8,8,8,8,8,8,8,8,8,-9,-9},{-9,8,8,8,8,8,8,8,8,8,8,8,8,-9,-9},{-9,8,8,8,8,8,8,8,8,8,8,8,8,-9,-9},{-9,8,8,8,8,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9},{-9,8,8,8,8,8,8,8,8,8,8,8,8,8,1},{-9,8,8,8,8,8,8,8,8,8,8,8,8,8,1},{-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9}},{{-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9},{-9,-9,8,8,8,8,8,8,8,8,-9,-9,-9,-9,-9,-9},{-9,-9,8,8,8,8,8,8,8,8,-9,-9,-9,-9,-9,-9},{-9,-9,-9,-9,-9,-9,8,8,8,8,-9,-9,-9,-9,-9,-9},{-9,-9,8,8,8,8,8,8,8,8,8,8,8,8,-9,-9},{-9,-9,8,8,8,8,8,8,8,8,8,8,8,8,-9,-9},{0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,2},{0,8,8,8,8,8,8,8,8,8,8,8,8,8,8,2},{-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9}},{{0,0},{0,0},{-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9},{-9,-9,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,-9},{-9,-9,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,-9},{-9,-9,-9,-9,-9,-9,8,8,8,8,8,8,8,8,8,8,8,8,-9},{-9,-9,-9,-9,-9,-9,8,8,8,8,8,8,8,8,8,8,8,8,-9},{-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,8,8,8,8,-9},{-9,-9,-9,-9,1,8,8,8,8,8,8,8,8,8,8,8,8,8,-9},{-9,-9,-9,-9,1,8,8,8,8,8,8,8,8,8,8,8,8,8,-9},{-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9}}};
 int playerposx=8;
 int playerposy=4;
-int playerposz=0;
+int playerposz=1;
 int x=0;
 
-
-map[playerposy][playerposx]='O';
+map[playerposz][playerposy][playerposx]='O';
 
 while (x>-1) {
 
 system ("cls");
-printmap (map);
+printf ("%d\n",mapcolider[playerposz][playerposy][playerposx]);
+printmap (map, playerposz,mapcolider);
 
 x = getch()-48;
 
-
 switch (x) {
   case 71://cima
-      map[playerposy][playerposx]=oldchar;
-      oldchar=map[playerposy-1][playerposx];
-      map[playerposy-1][playerposx]='O';
+      if(mapcolider[playerposz][playerposy-1][playerposx]==-9)
+        break;
+      map[playerposz][playerposy][playerposx]=oldchar;
+      oldchar=map[playerposz][playerposy-1][playerposx];
+      map[playerposz][playerposy-1][playerposx]='O';
       playerposy--;
     break;
   case 67://baixo
-      map[playerposy][playerposx]=oldchar;
-      oldchar=map[playerposy+1][playerposx];
-      map[playerposy+1][playerposx]='O';
+      if(mapcolider[playerposz][playerposy+1][playerposx]==-9)
+        break;
+      map[playerposz][playerposy][playerposx]=oldchar;
+      oldchar=map[playerposz][playerposy+1][playerposx];
+      map[playerposz][playerposy+1][playerposx]='O';
       playerposy++;
     break;
   case 49://esquerda
-      map[playerposy][playerposx]=oldchar;
-      oldchar=map[playerposy][playerposx-1];
-      map[playerposy][playerposx-1]='O';
+      if(mapcolider[playerposz][playerposy][playerposx-1]==-9)
+        break;
+      if(mapcolider[playerposz][playerposy][playerposx-1]>=0 && mapcolider[playerposz][playerposy][playerposx-1]<7){
+        playerposz = mapcolider[playerposz][playerposy][playerposx-1];
+       }
+       else {
+      map[playerposz][playerposy][playerposx]=oldchar;
+      oldchar=map[playerposz][playerposy][playerposx-1];
+      map[playerposz][playerposy][playerposx-1]='O';
       playerposx--;
+        }
     break;
   case 52://direita
-      map[playerposy][playerposx]=oldchar;
-      oldchar=map[playerposy][playerposx+1];
-      map[playerposy][playerposx+1]='O';
+      if(mapcolider[playerposz][playerposy][playerposx+1]==-9)
+        break;
+      map[playerposz][playerposy][playerposx]=oldchar;
+      oldchar=map[playerposz][playerposy][playerposx+1];
+      map[playerposz][playerposy][playerposx+1]='O';
       playerposx++;
     break;
 }
@@ -55,12 +69,11 @@ switch (x) {
     return 0;
 }
 
-void printmap (char map[11][50]){
+void printmap (char map[3][12][50],int z,int colider[3][10][20]){
 
-for(int i=0;i<11;i++){
-    printf("%s\n",map[i]);
+for(int i=0;i<12;i++){
+    printf("[%d] %s\n",i,map[z][i]);
 }
-
 }
 
 
