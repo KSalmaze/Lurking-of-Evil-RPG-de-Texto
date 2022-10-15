@@ -4,10 +4,7 @@
 #include <conio.h>
 #include "menu.h"
 
-void intro ();//Ações necessárias ao iniciar o jogo
-int character_creation ();//Criação de personagem
-
-typedef struct t_atributes {
+typedef struct {
 int teste;
 int life;
 int strengh;
@@ -16,28 +13,37 @@ int sanity;
 int charisma;
 int resistance;
 int luck;
-};
-typedef struct t_player {
-struct t_atributes atributes;
+}t_atributes;
 
-};
+typedef struct {
+t_atributes atributes;
 
-typedef struct t_map {
+}t_player;
+
+typedef struct {
 char complete;
 char atual;
 int colider;
 int eventos;
-};
+}t_map;
+
+void intro ();//Ações necessárias ao iniciar o jogo
+int character_creation (t_player* player, int save);//Criação de personagem
 
 int main () {
 
-main_menu();
+int save;
+t_player player[4];
+
+if (main_menu()==6)
+ character_creation(&player,save);
 
 return 0;
 }
 
-void basic (){
+void intro (){
 }
 
-int character_creation (){
+int character_creation (t_player* player, int save){
+    system ("cls");
 }

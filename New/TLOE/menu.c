@@ -7,7 +7,6 @@
 //char menu[6][50]={"       MENU    ","     Novo Jogo    ","     Carregar    ","      Opcoes      ","     Creditos    ","       Sair      "};
 
 int main_menu(){
-
 char menu[6][50]={"       MENU    ","     Novo Jogo    ","     Carregar    ","      Opcoes      ","     Creditos    ","       Sair      "};
 int action=1;
 int old_escolha;
@@ -45,20 +44,17 @@ menu[old_escolha][18]=' ';
 if (action == 32 || action == 13) {
 switch (escolha){
 case 1:
-    printf("NJ");
-    getch();
+    return 6;
     break;
 case 2:
     printf("CJ");
     getch();
     break;
 case 3:
-    printf("OP");
-    getch();
+    options();
     break;
 case 4:
-    printf("CR");
-    getch();
+    credits();
     break;
 case 5:
     if (quit()==0)
@@ -80,11 +76,15 @@ void loadgame(){
 }
 
 void options(){
-
+system("cls");
+printf("Futuramente vai dar pra personalizar as teclas e\nalterar a linguagem");
+getch();
 }
 
 void credits(){
-
+system("cls");
+printf("Tudo: Pedro Salmaze\nArte: Raul Biazotto\n\nAgradecimentos Especiais\n Joao Pedro Macaro");
+getch();
 }
 
 int quit(){
@@ -94,13 +94,12 @@ int get;
 while (escolha < 1000){
 
 system ("cls");
-printf("%d",escolha);
 printf("\n   Tem certeza que deseja sair?\n");
 
 if(escolha==0)
-    printf("        -> Sim <-\n           Nao   ");
+    printf("        -> Sim <-\n           Nao   \n\n\n\n");
 else
-    printf("           Sim   \n        -> Nao <-");
+    printf("           Sim   \n        -> Nao <-\n\n\n\n");
 
 get=getch();
 
