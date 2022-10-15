@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
+#include "menu.h"
 
-int character_creation ();
-void basic ();
-void menu ();
+void intro ();//Ações necessárias ao iniciar o jogo
+int character_creation ();//Criação de personagem
 
-typedef struct Satributes {
+typedef struct t_atributes {
 int teste;
 int life;
 int strengh;
@@ -16,48 +17,26 @@ int charisma;
 int resistance;
 int luck;
 };
+typedef struct t_player {
+struct t_atributes atributes;
 
-typedef struct Splayer {
-struct Satributes atributes;
-char arma[20];
+};
 
+typedef struct t_map {
+char complete;
+char atual;
+int colider;
+int eventos;
 };
 
 int main () {
 
-basic();
-menu();
+main_menu();
 
 return 0;
 }
 
 void basic (){
-}
-
-void menu(){
-int action;
-
-printf("MENU\n");
-printf("1-Novo Jogo\n");
-printf("2-Carregar Jogo\n");
-printf("3-Configuracoes\n");
-printf("4-Creditos\n");
-printf("5-Sair\n");
-
-switch (action){
-case 1:
-    break;
-case 2:
-    break;
-case 3:
-    break;
-case 4:
-    break;
-case 5:
-    break;
-default:
-    system("cls");
-}
 }
 
 int character_creation (){

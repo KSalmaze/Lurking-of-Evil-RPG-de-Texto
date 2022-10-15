@@ -1,0 +1,1 @@
+- Configurar para que o Caps não afete as teclas das letras
