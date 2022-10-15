@@ -4,10 +4,11 @@
 #include <conio.h>
 #include "menu.h"
 
+//char menu[6][50]={"       MENU    ","     Novo Jogo    ","     Carregar    ","      Opcoes      ","     Creditos    ","       Sair      "};
+
+int main_menu(){
+
 char menu[6][50]={"       MENU    ","     Novo Jogo    ","     Carregar    ","      Opcoes      ","     Creditos    ","       Sair      "};
-
-void main_menu(){
-
 int action=1;
 int old_escolha;
 int escolha=1;
@@ -60,8 +61,8 @@ case 4:
     getch();
     break;
 case 5:
-    printf("QT");
-    getch();
+    if (quit()==0)
+       return 0;
     break;
 default:
     system("cls");
@@ -70,3 +71,50 @@ default:
  }
 }
 
+int newgame(){
+
+}
+
+void loadgame(){
+
+}
+
+void options(){
+
+}
+
+void credits(){
+
+}
+
+int quit(){
+int escolha=0;
+int get;
+
+while (escolha < 1000){
+
+system ("cls");
+printf("%d",escolha);
+printf("\n   Tem certeza que deseja sair?\n");
+
+if(escolha==0)
+    printf("        -> Sim <-\n           Nao   ");
+else
+    printf("           Sim   \n        -> Nao <-");
+
+get=getch();
+
+if(get == 32 || get == 13){
+    if(escolha==0)
+        return 0;
+    else {
+        return 2;
+    }
+}
+
+if(get == 119 && escolha != 0)
+    escolha--;
+if(get == 115 && escolha != 1)
+    escolha++;
+}
+}

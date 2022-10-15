@@ -1,12 +1,12 @@
 #ifndef MENU_H
 #define MENU_H
 
-void main_menu();
+int main_menu();
 
-void newgame();
+int newgame();
 void loadgame();
 void options();
 void credits();
-void quit();
+int quit();
 
 #endif

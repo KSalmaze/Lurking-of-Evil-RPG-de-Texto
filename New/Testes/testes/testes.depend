@@ -1,7 +1,12 @@
 # depslib dependency file v1.0
-1665328317 source:c:\github\the-lurk-of-evil\new\testes\testes\movimento.c
+1665807102 source:c:\github\the-lurk-of-evil\new\testes\testes\movimento.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
+
+1665807102 source:c:\github\the-lurk-of-evil\new\testes\testes\inventario.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 

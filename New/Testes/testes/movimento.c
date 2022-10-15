@@ -7,7 +7,7 @@ void printmap (char map[3][12][50],int z,int colider[3][10][20]);
 
 void attplayerposition (int x,int y,int z,char old);
 
-int mov () {
+int main () {
 char oldchar=' ';
 //char map[11][50]={"__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________","__________________"};
 char map[3][12][50]={{"XXXXXXXXXXXXXX","X    --+--   X","X            X","X            X","X            X","X    XXXXXXXXX","X             ","X             ","XXXXXXXXXXXXXX"},{" XXXXXXXXXX     "," X        X     "," X        X     "," XXXXX    XXXXX "," X            X "," X            X ","                ","                "," XXXXXXXXXXXXXX "},{" XXXXXXXXXXXXXXXXXX"," X                X"," X                X"," XXXXX            X","     X            X","     XXXXXXXXX    X","                  X","                  X"," XXXXXXXXXXXXXXXXXX"}};
