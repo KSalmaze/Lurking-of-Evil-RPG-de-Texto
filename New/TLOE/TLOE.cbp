@@ -34,10 +34,10 @@
 		<Unit filename="Main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="menu.c">
+		<Unit filename="menus.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="menu.h" />
+		<Unit filename="menus.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

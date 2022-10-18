@@ -2,37 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
-#include "menu.h"
+#include "types.h"
+#include "menus.h"
 
-typedef struct {
-int teste;
-int life;
-int strengh;
-int intelligence;
-int sanity;
-int charisma;
-int resistance;
-int luck;
-}t_atributes;
-
-typedef struct {
-t_atributes atributes;
-
-}t_player;
-
-typedef struct {
-char complete;
-char atual;
-int colider;
-int eventos;
-}t_map;
-
-typedef struct {
-int top;
-int down;
-int left;
-int right;
-}imput;
 
 void intro ();//Ações necessárias ao iniciar o jogo
 int character_creation (t_player* player, int save);//Criação de personagem
@@ -41,8 +13,12 @@ int main () {
 
 int save;
 t_player player[4];
+t_imput imput;
 
-if (main_menu()==6)
+initializer_imput(&imput);
+//initializer_map();
+
+if (main_menu(imput)==6)
  character_creation(&player,save);
 
 return 0;

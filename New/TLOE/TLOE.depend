@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1666048366 source:c:\github\the-lurk-of-evil\new\tloe\main.c
+1666132235 source:c:\github\the-lurk-of-evil\new\tloe\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
-	"menu.h"
+	"types.h"
+	"menus.h"
 
 1666049868 source:c:\github\the-lurk-of-evil\new\tloe\menu.c
 	<stdio.h>
@@ -21,4 +22,25 @@
 	"menu.h"
 
 1666048366 c:\github\the-lurk-of-evil\new\tloe\menu.h
+
+1666132450 c:\github\the-lurk-of-evil\new\tloe\menus.h
+	"types.h"
+
+1666132477 source:c:\github\the-lurk-of-evil\new\tloe\menus.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"menus.h"
+	"types.h"
+
+1666131983 source:c:\github\the-lurk-of-evil\new\tloe\initialazers.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"types.h"
+
+1666131196 source:c:\github\the-lurk-of-evil\new\tloe\types.c
+
+1666131361 c:\github\the-lurk-of-evil\new\tloe\types.h
 

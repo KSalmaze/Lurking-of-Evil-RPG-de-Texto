@@ -2,17 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
-#include "menu.h"
+#include "menus.h"
+#include "types.h"
 
 //char menu[6][50]={"       MENU    ","     Novo Jogo    ","     Carregar    ","      Opcoes      ","     Creditos    ","       Sair      "};
 
-int main_menu(){
+int main_menu(t_imput imput){
 char menu[6][50]={"       MENU    ","     Novo Jogo    ","     Carregar    ","      Opcoes      ","     Creditos    ","       Sair      "};
-int action=1;
+int get=1;
 int old_escolha;
 int escolha=1;
 
-while (action < 10000) {
+while (get < 10000) {
 
 menu[escolha][0]='-';
 menu[escolha][1]='>';
@@ -27,11 +28,11 @@ menu[escolha][18]='-';
 }
 old_escolha=escolha;
 
-action = getch();
+get = getch();
 
-if (action == 119 && escolha != 1)
+if (get == imput.top && escolha != 1)
     escolha--;
-if (action == 115 && escolha != 5)
+if (get == imput.down && escolha != 5)
     escolha++;
 
 if(old_escolha != escolha){
@@ -41,23 +42,23 @@ menu[old_escolha][17]=' ';
 menu[old_escolha][18]=' ';
 }
 
-if (action == 32 || action == 13) {
+if (get == imput.enter1 || get == imput.enter2) {
 switch (escolha){
 case 1:
     return 6;
     break;
 case 2:
-    loadgame();
+    loadgame(imput);
     getch();
     break;
 case 3:
-    options();
+    options(imput);
     break;
 case 4:
     credits();
     break;
 case 5:
-    if (quit()==0)
+    if (quit(imput)==0)
        return 0;
     break;
 default:
@@ -67,11 +68,11 @@ default:
  }
 }
 
-int newgame(){
+int newgame(t_imput imput){
 
 }
 
-void loadgame(){
+void loadgame(t_imput imput){
 char menu[6][70]={{"Escolha um slot de salvamento"},{" "},{"   Slot 1   "},{"   Slot 2   "},{"   Slot 3   "},{"   Slot 4   "}};
 int get=3;
 
@@ -81,7 +82,7 @@ while (get >1){
 
 }
 
-void options(){
+void options(t_imput imput){
 system("cls");
 printf("Futuramente vai dar pra personalizar as teclas e\nalterar a linguagem");
 getch();
@@ -93,7 +94,7 @@ printf("Tudo: Pedro Salmaze\nArte: Raul Biazotto\n\nAgradecimentos Especiais\n J
 getch();
 }
 
-int quit(){
+int quit(t_imput imput){
 int escolha=0;//controla a posição escolhida no menu
 int get;//armazena o imput do usuário
 
@@ -109,7 +110,7 @@ else
 
 get=getch(); //imput
 
-if(get == 32 || get == 13){
+if(get == imput.enter1 || get == imput.enter2){
     if(escolha==0)
         return 0;//fecha o jogo
     else {
@@ -117,9 +118,9 @@ if(get == 32 || get == 13){
     }
 }
 
-if(get == 119 && escolha != 0)
+if(get == imput.top && escolha != 0)
     escolha--;
-if(get == 115 && escolha != 1)
+if(get == imput.down && escolha != 1)
     escolha++;
 }
 }
