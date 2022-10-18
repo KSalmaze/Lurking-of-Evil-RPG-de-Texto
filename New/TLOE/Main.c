@@ -27,6 +27,13 @@ int colider;
 int eventos;
 }t_map;
 
+typedef struct {
+int top;
+int down;
+int left;
+int right;
+}imput;
+
 void intro ();//Ações necessárias ao iniciar o jogo
 int character_creation (t_player* player, int save);//Criação de personagem
 

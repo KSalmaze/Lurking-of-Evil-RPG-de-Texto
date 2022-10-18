@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1666045798 source:c:\github\the-lurk-of-evil\new\arte\testes\code\teste\testec.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+

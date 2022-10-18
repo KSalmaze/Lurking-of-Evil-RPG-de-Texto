@@ -47,7 +47,7 @@ case 1:
     return 6;
     break;
 case 2:
-    printf("CJ");
+    loadgame();
     getch();
     break;
 case 3:
@@ -72,6 +72,12 @@ int newgame(){
 }
 
 void loadgame(){
+char menu[6][70]={{"Escolha um slot de salvamento"},{" "},{"   Slot 1   "},{"   Slot 2   "},{"   Slot 3   "},{"   Slot 4   "}};
+int get=3;
+
+while (get >1){
+
+}
 
 }
 
@@ -88,8 +94,8 @@ getch();
 }
 
 int quit(){
-int escolha=0;
-int get;
+int escolha=0;//controla a posição escolhida no menu
+int get;//armazena o imput do usuário
 
 while (escolha < 1000){
 
@@ -101,13 +107,13 @@ if(escolha==0)
 else
     printf("           Sim   \n        -> Nao <-\n\n\n\n");
 
-get=getch();
+get=getch(); //imput
 
 if(get == 32 || get == 13){
     if(escolha==0)
-        return 0;
+        return 0;//fecha o jogo
     else {
-        return 2;
+        return 69;//retorna para o menu principal
     }
 }
 
