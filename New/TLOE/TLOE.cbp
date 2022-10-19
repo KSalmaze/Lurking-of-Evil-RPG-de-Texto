@@ -31,13 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Initializers.h" />
 		<Unit filename="Main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="initialazers.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menus.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menus.h" />
+		<Unit filename="types.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="types.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

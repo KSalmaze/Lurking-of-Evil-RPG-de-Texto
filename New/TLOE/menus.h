@@ -9,5 +9,6 @@ void loadgame(t_imput imput);//escolha o save e se ele for válido retorna o slot
 void options(t_imput imput);//muda para o menu de opções
 void credits();//mostra os créditos
 int quit(t_imput imput);//fecha o jogo
+int escolhe_save(t_imput imput);
 
 #endif

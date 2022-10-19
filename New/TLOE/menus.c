@@ -73,12 +73,7 @@ int newgame(t_imput imput){
 }
 
 void loadgame(t_imput imput){
-char menu[6][70]={{"Escolha um slot de salvamento"},{" "},{"   Slot 1   "},{"   Slot 2   "},{"   Slot 3   "},{"   Slot 4   "}};
-int get=3;
-
-while (get >1){
-
-}
+escolhe_save(imput);
 
 }
 
@@ -122,5 +117,42 @@ if(get == imput.top && escolha != 0)
     escolha--;
 if(get == imput.down && escolha != 1)
     escolha++;
+}
+}
+
+int escolhe_save(t_imput imput){
+char menu[6][70]={{"Escolha um slot de salvamento"},{" "},{"        Slot 1   "},{"        Slot 2   "},{"        Slot 3   "},{"        Slot 4   "}};
+int get=3;
+int escolha=1;
+int old_escolha;
+
+while (get>-10){
+{//Parte gráfica
+
+    menu[escolha+1][0]='-';
+    menu[escolha+1][1]='>';
+    menu[escolha+1][17]='<';
+    menu[escolha+1][18]='-';
+
+    system("cls");
+    for(int i=0;i<6;i++){
+        printf("%s\n",menu[i]);
+    }
+    get = getch();
+    old_escolha=escolha;
+
+    if (get ==  imput.top && escolha != 1)
+        escolha--;
+    if (get == imput.down && escolha != 4)
+        escolha++;
+
+   // if(old_escolha != escolha){
+        menu[old_escolha+1][0]=' ';
+        menu[old_escolha+1][1]=' ';
+        menu[old_escolha+1][17]=' ';
+        menu[old_escolha+1][18]=' ';
+    // }
+old_escolha=escolha;
+}
 }
 }

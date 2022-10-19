@@ -4,6 +4,7 @@
 #include <conio.h>
 #include "types.h"
 #include "menus.h"
+#include "Initializers.h"
 
 
 void intro ();//Ações necessárias ao iniciar o jogo
@@ -16,6 +17,8 @@ t_player player[4];
 t_imput imput;
 
 initializer_imput(&imput);
+printf("%d",imput.top);
+getch();
 //initializer_map();
 
 if (main_menu(imput)==6)
@@ -29,4 +32,5 @@ void intro (){
 
 int character_creation (t_player* player, int save){
     system ("cls");
+    printf ("Bem vindo a criação de personagem\n");
 }
