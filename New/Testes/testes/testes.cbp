@@ -31,9 +31,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="inventario.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="movimento.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -17,8 +17,6 @@ t_player player[4];
 t_imput imput;
 
 initializer_imput(&imput);
-printf("%d",imput.top);
-getch();
 //initializer_map();
 
 if (main_menu(imput)==6)

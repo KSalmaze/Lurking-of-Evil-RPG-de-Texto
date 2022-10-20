@@ -10,25 +10,24 @@ int main () {
 FILE*arq;
 arq = fopen ("teste.txt","w");
 
-char arquivo[169];
+char arquivo[2][169];
 
-/*
-keybd_event ( VK_MENU, 0x36, 0, 0 );
-keybd_event ( VK_RETURN, 0x1C, 0, 0 );
-keybd_event ( VK_RETURN, 0x1C, KEYEVENTF_KEYUP, 0 );
-keybd_event ( VK_MENU, 0x38, KEYEVENTF_KEYUP, 0 );
-*/
-
-for(int i=0;i<48;i++){
+for(int j=0;j<48;j++){
   for(int i=0;i<168;i++){
     fprintf (arq,"x");
   }
 fprintf (arq,"\n");
 }
 
-fscanf (arq,"%s",arquivo);
+for(int j=0;j<48;j++){
+  for(int i=0;i<168;i++){
+    fscanf (arq,"%c",&arquivo[j][i]);
+  }
+}
 
-printf("%s",arquivo);
+for(int i=0;i<168;i++){
+    printf ("%c",arquivo[0][i]);
+  }
 
 fclose (arq);
 

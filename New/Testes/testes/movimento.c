@@ -15,7 +15,7 @@ int mapcolider[3][10][20]={{{-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9,-9},{-9,8
 int eventos[3][10][20];
 int playerposx=8;
 int playerposy=4;
-int playerposz=1;
+int playerposz=0;
 int x=0;
 
 map[playerposz][playerposy][playerposx]='O';
@@ -49,24 +49,14 @@ switch (x) {
   case 49://esquerda
       if(mapcolider[playerposz][playerposy][playerposx-1]==-9)
         break;
-      if(mapcolider[playerposz][playerposy][playerposx-1]>=0 && mapcolider[playerposz][playerposy][playerposx-1]<7){
-        playerposz = mapcolider[playerposz][playerposy][playerposx-1];
-        playerposx=playerposx+12;
-       }
-       else {
       map[playerposz][playerposy][playerposx]=oldchar;
       oldchar=map[playerposz][playerposy][playerposx-1];
       map[playerposz][playerposy][playerposx-1]='O';
       playerposx--;
-        }
     break;
   case 52://direita
       if(mapcolider[playerposz][playerposy][playerposx+1]==-9)
         break;
-      if(mapcolider[playerposz][playerposy][playerposx+1]>=0 && mapcolider[playerposz][playerposy][playerposx+1]<7){
-        playerposz = mapcolider[playerposz][playerposy][playerposx+1];
-        playerposx=playerposx-4;
-       }
       map[playerposz][playerposy][playerposx]=oldchar;
       oldchar=map[playerposz][playerposy][playerposx+1];
       map[playerposz][playerposy][playerposx+1]='O';
