@@ -22,7 +22,9 @@ int z;//Controla o andar atual do player
 typedef struct {//Player
 t_atributes atributes;
 t_position position;
-
+char nome[25];
+int genero;
+int idade;
 }t_player;
 
 typedef struct {//Mapas
@@ -32,15 +34,28 @@ int colider;
 int eventos;
 }t_map;
 
-typedef struct {//Imputs
+typedef struct {//Inputs
 int top;
 int down;
 int left;
 int right;
 int enter1;
 int enter2;
-}t_imput;
+int toparrow;
+int downarrow;
+int leftarrow;
+int rightarrow;
+}t_input;
 
+typedef struct {//Game Stats
+int save;
+int idioma;
+}t_gamestats;
+
+typedef struct {//vector2
+int x;
+int y;
+}vector2;
 
 #endif
 

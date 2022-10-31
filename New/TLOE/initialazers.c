@@ -3,13 +3,17 @@
 #include <string.h>
 #include "types.h"
 
-void initializer_imput(t_imput* imput){
-imput->top = 119;
-imput->down = 115;
-imput->left = 97;
-imput->right = 100;
-imput->enter1 = 13;
-imput->enter2 = 32;
+void initialize_input (t_input* input){
+input->top = 119;
+input->down = 115;
+input->left = 97;
+input->right = 100;
+input->enter1 = 13;
+input->enter2 = 32;
+input->toparrow = 3;
+input->downarrow = 1;
+input->leftarrow = 0;
+input->rightarrow = 2;
 }
 
 void initializer_map(t_map* mapa);

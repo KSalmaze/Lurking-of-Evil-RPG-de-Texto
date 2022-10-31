@@ -1,5 +1,24 @@
-X0 Y6 Z1 = 0
-X0 Y7 Z1 = 0
+15476500 <-
 
-X15 Y6 Z1 = 2
-X15 Y7 Z1 = 2
+00 - indica o tipo de evento
+os numeros seguintes indicam oque deve acontecer no evento
+
+Evento 00 - Mudança de sala
+
+101200 | 00
+
+00 - indica a sala que player deve ir
+12 - nuvo valor de x
+10 - novo valor de y
+
+X0 Y6 Z1 -> 0 061300
+X0 Y7 Z1 -> 0 071300
+
+X15 Y6 Z1 -> 2 060502
+X15 Y7 Z1 -> 2 070502
+
+X4 Y6 Z2 -> 1 061401
+X4 Y7 Z2 -> 1 071401
+
+X14 Y6 Z0 ->1 060101
+X14 Y7 Z0 ->1 070101

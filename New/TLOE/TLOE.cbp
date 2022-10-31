@@ -42,6 +42,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menus.h" />
+		<Unit filename="others.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="others.h" />
 		<Unit filename="types.c">
 			<Option compilerVar="CC" />
 		</Unit>
