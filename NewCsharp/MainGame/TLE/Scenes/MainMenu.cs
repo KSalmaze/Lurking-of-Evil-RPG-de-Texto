@@ -8,7 +8,7 @@ public static class MainMenu
     {
         GraphicsManager screen = new GraphicsManager();
 
-        string[] a = new String[]
+        string[] menu = new String[]
         {
             " The Lurking Evil ",
             "             Remake ",
@@ -16,7 +16,15 @@ public static class MainMenu
             "  Novo Jogo  "
         };
         
-        screen.Print(a);
+        screen.Print(menu);
+        
+        string[] selector = new String[]
+        {
+            "->              <-"
+        };
+        
+        screen.Print(menu);
+        
             
         while (true)
         {

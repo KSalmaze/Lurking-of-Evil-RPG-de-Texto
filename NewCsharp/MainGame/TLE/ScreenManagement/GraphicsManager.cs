@@ -21,7 +21,13 @@ public class GraphicsManager
     
     public void Print(string[] sprite, Vector2 coord, Byte urge)
     {
-        
+        int iy = coord.y - sprite.Length / 2;
+        int ix = coord.x - sprite[0].Length / 2;
+
+        for (int i = 0; i < sprite.Length; i++)
+        {
+            //screen[iy +i]
+        }
     }
 
     public void Print(string[] sprite)
