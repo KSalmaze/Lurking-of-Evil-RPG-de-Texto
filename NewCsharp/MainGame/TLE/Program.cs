@@ -1,12 +1,16 @@
-﻿using System;
+﻿using TLE.Scenes;
 
-namespace MainGame
+namespace TLE
 {
-   class TLE
+   class Tle
     {
-        static void Main()
+        private static void Main()
         {
-            Console.WriteLine("Hello, world!");
+            MainMenu.InitializeMenu();
         }
     }
 }
+
+/* To Do List
+ - Create a data type to sprite, witch contains a 720p and a 1080p version of the sprite
+*/
