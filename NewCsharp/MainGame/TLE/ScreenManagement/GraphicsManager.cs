@@ -12,6 +12,7 @@ public class GraphicsManager
 
         if (urgency >= 5)
         {
+            Console.Clear();
             for (int i = 0; i < screen.Length; i++)
             {
                 Console.WriteLine(screen[i]);
@@ -24,10 +25,27 @@ public class GraphicsManager
         int iy = coord.y - sprite.Length / 2;
         int ix = coord.x - sprite[0].Length / 2;
 
+        if (ix < 0)
+            ix = 0;
+
         for (int i = 0; i < sprite.Length; i++)
         {
-            //screen[iy +i]
+            char[] buffer = screen[iy].ToCharArray();
+
+            for (int j = 0; j < sprite[0].Length; j++)
+            {
+                if (sprite[i][j] != '^')
+                {
+                    //Console.WriteLine(ix + "<->" + j);
+                    buffer[ix + j] = sprite[i][j];
+                }
+            }
+
+            screen[iy] = new string(buffer);
+            iy++;
         }
+        
+        RefreshScreen(urge);
     }
 
     public void Print(string[] sprite)

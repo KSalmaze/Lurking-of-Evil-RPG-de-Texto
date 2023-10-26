@@ -1,3 +1,4 @@
+using TLE.DataTypes;
 using TLE.ScreenManagement;
 
 namespace TLE.Scenes;
@@ -12,23 +13,30 @@ public static class MainMenu
         {
             " The Lurking Evil ",
             "             Remake ",
-            "  ",
-            "  Novo Jogo  "
+            "            ",
+            "   New Game    ",
+            "   Load Game    ",
+            "   Options      ",
+            "   Extras       ",
+            "   Quit         "
         };
         
         screen.Print(menu);
         
         string[] selector = new String[]
         {
-            "->              <-"
+            "->^^^^^^^^^^^<-"
         };
         
-        screen.Print(menu);
+        screen.Print(selector,new Vector2(0,3),5);
         
-            
         while (true)
         {
-                
+            if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
+                    Console
+                }
         }
     }
 }
