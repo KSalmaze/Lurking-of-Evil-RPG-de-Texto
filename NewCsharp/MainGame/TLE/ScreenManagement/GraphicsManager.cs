@@ -17,19 +17,9 @@ public class GraphicsManager
             activeObjects.Add(new List<CharObject>());
         }
 
-        screen = new[]
-        {
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              "
-        };
+        screen = Clear();
     }
-    private void RefreshScreen(Byte urge)
+    private void WriteScreen(Byte urge)
     {
         _urgency += urge;
 
@@ -43,8 +33,10 @@ public class GraphicsManager
         }
     }
 
-    private void WriteScreen()
+    public void RefreshScreen()
     {
+        screen = Clear();
+        
         foreach (var layer in activeObjects)
         {
             foreach (var obj in layer)
@@ -56,7 +48,7 @@ public class GraphicsManager
             }
         }
         
-        RefreshScreen(5);
+        WriteScreen(5);
     }
 
     private void Test(string[] sprite, Vector2 pos)
@@ -107,7 +99,21 @@ public class GraphicsManager
     {
         activeObjects[0].Add(obj);
        // RefreshScreen(5);
-        WriteScreen();
+    }
+
+    private string[] Clear()
+    {
+        return new[]
+        {
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              "
+        };
     }
 }
 

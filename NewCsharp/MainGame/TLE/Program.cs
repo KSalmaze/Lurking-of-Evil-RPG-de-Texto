@@ -34,13 +34,17 @@ namespace TLE
             CharObject y = new CharObject(b);
             y.SetPosition(0,3);
             
-            screen.Print(y);
+            screen.Print(y,1);
+            
+            screen.RefreshScreen();
             // MainMenu.InitializeMenu();
         }
     }
 }
 
 /* To Do List
- - Create a data type to sprite, witch contains a 720p and a 1080p version of the sprite
- - Testar os construtores de Sprite
+ - Contrutores com resolução do terminal no graphics manager
+ - Testar os construtores de aquivo em Sprite
+ - Testar animações
+ - Objetos animados
 */
