@@ -2,11 +2,25 @@ namespace TLE.DataTypes;
 
 public class Sprite
 {
-    // private string[] 720p;
-    // private string[] 1080p;
+    private string[] _sprite;
+    private bool _isActive;
 
-    // Construtor com 3 variações, 
-    // Arquivo com sprite
-    // As sprites em duas string[]
-    // E em uma string[][]?
+    public Sprite(string[] sprite)
+    {
+        _sprite = sprite;
+    }
+
+    public bool isActive
+    {
+        get => _isActive;
+
+        set => _isActive = value;
+    }
+    
+    public string[] sprite
+    {
+        get => _sprite;
+
+        set => _sprite = value;
+    }
 }
