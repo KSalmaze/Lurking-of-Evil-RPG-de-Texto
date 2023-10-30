@@ -5,12 +5,35 @@ namespace TLE.ScreenManagement;
 public class GraphicsManager
 {
     private string[] screen;
-    private Byte urgency = 0;
+    private byte _urgency;
+    private List<List<CharObject>> activeObjects;
+
+    public GraphicsManager()
+    {
+        activeObjects = new List<List<CharObject>>();
+        
+        for (int i = 0; i < 5; i++)
+        {
+            activeObjects.Add(new List<CharObject>());
+        }
+
+        screen = new[]
+        {
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              ",
+            "                              "
+        };
+    }
     private void RefreshScreen(Byte urge)
     {
-        urgency += urge;
+        _urgency += urge;
 
-        if (urgency >= 5)
+        if (_urgency >= 5)
         {
             Console.Clear();
             for (int i = 0; i < screen.Length; i++)
@@ -19,39 +42,72 @@ public class GraphicsManager
             }
         }
     }
-    
-    public void Print(string[] sprite, Vector2 coord, Byte urge)
+
+    private void WriteScreen()
     {
-        int iy = coord.y - sprite.Length / 2;
-        int ix = coord.x - sprite[0].Length / 2;
+        foreach (var layer in activeObjects)
+        {
+            foreach (var obj in layer)
+            {
+                if (obj.isActive)
+                {
+                    Test(obj.sprite,obj.GetPosition());
+                }
+            }
+        }
+        
+        RefreshScreen(5);
+    }
 
-        if (ix < 0)
-            ix = 0;
-
+    private void Test(string[] sprite, Vector2 pos)
+    {
         for (int i = 0; i < sprite.Length; i++)
         {
-            char[] buffer = screen[iy].ToCharArray();
-
-            for (int j = 0; j < sprite[0].Length; j++)
+            if (pos.y + i < 0)
             {
-                if (sprite[i][j] != '^')
+                break;
+            }
+            char[] buffer = screen[pos.y + i].ToCharArray();
+           // Console.WriteLine("Buffer = " + new string(buffer));
+
+            for (int j = 0; j < sprite[i].Length; j++)
+            {
+                if (pos.x + j < 0)
                 {
-                    //Console.WriteLine(ix + "<->" + j);
-                    buffer[ix + j] = sprite[i][j];
+                    break;
+                }
+
+             //   Console.WriteLine(i + " <-> " + j);
+               
+                if (sprite[i][j] != ' ')
+                {
+                    if (sprite[i][j] == '^')
+                    {
+                        buffer[j] = ' ';
+                    }
+                    else
+                    {
+                        buffer[j] = sprite[i][j];
+                    }
                 }
             }
 
-            screen[iy] = new string(buffer);
-            iy++;
+            screen[pos.y + i] = new string(buffer);
+            
+        //    RefreshScreen(5);
         }
-        
-        RefreshScreen(urge);
+    }
+    
+    public void Print(CharObject obj, int layer)
+    {
+        activeObjects[layer].Add(obj);
     }
 
-    public void Print(string[] sprite)
+    public void Print(CharObject obj)
     {
-        screen = sprite;
-        RefreshScreen(5);
+        activeObjects[0].Add(obj);
+       // RefreshScreen(5);
+        WriteScreen();
     }
 }
 

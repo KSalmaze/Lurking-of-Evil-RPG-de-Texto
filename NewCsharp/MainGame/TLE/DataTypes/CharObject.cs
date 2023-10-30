@@ -1,10 +1,10 @@
 namespace TLE.DataTypes;
 
-public class Object : Sprite
+public class CharObject : Sprite
 {
     private Vector2 _position;
 
-    public Object(string[] sprite) : base(sprite)
+    public CharObject(string[] sprite) : base(sprite)
     {
         
     }
@@ -18,5 +18,10 @@ public class Object : Sprite
     {
        _position.x = x;
        _position.y = y;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return _position;
     }
 }

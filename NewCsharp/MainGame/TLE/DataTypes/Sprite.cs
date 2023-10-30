@@ -8,6 +8,7 @@ public class Sprite
     public Sprite(string[] sprite)
     {
         _sprite = sprite;
+        _isActive = true;
     }
 
     public bool isActive
