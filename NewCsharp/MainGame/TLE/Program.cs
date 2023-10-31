@@ -8,33 +8,20 @@ namespace TLE
     {
         private static void Main()
         {
-            GraphicsManager screen = new GraphicsManager();
+            GraphicsManager screen = new GraphicsManager(5,5,2);
 
-            AnimationControler animator = new AnimationControler(screen);
-            
             string[] a = new[]
             {
-                " The Lurking Evil ",
-                "             Remake ",
-                "            ",
-                "   New Game    ",
-                "   Load Game    ",
-                "   Options      ",
-                "   Extras       ",
-                "   Quit         "
+                "000",
+                "000",
+                "000"
             };
+
             CharObject x = new CharObject(a);
             x.SetPosition(0,0);
-
-            string[] b = new[]
-            {
-                "->             <-"
-            };
-            CharObject y = new CharObject(b);
-            y.SetPosition(0,4);
             
             screen.Print(x);
-            screen.Print(y);
+            
             screen.RefreshScreen();
         }
     }

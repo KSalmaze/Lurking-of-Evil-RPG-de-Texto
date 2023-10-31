@@ -7,17 +7,20 @@ public class GraphicsManager
     private string[] screen;
     private byte _urgency;
     private List<List<CharObject>> activeObjects;
+    private Vector2 _resolution;
 
-    public GraphicsManager()
+    public GraphicsManager(int res_x, int res_y, int numberOfLayers)
     {
+        _resolution = new Vector2(res_x, res_y);
+
         activeObjects = new List<List<CharObject>>();
         
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < numberOfLayers; i++)
         {
             activeObjects.Add(new List<CharObject>());
         }
 
-        screen = Clear();
+        ClearScreen();
     }
     private void WriteScreen(Byte urge)
     {
@@ -35,7 +38,7 @@ public class GraphicsManager
 
     public void RefreshScreen()
     {
-        screen = Clear();
+        ClearScreen();
         
         foreach (var layer in activeObjects)
         {
@@ -55,21 +58,21 @@ public class GraphicsManager
     {
         for (int i = 0; i < sprite.Length; i++)
         {
-            if (pos.y + i < 0)
+            if (pos.y + i < 0 || pos.y + i >= _resolution.y)
             {
                 break;
             }
             char[] buffer = screen[pos.y + i].ToCharArray();
-           // Console.WriteLine("Buffer = " + new string(buffer));
+            Console.WriteLine("Buffer = " + new string(buffer));
 
             for (int j = 0; j < sprite[i].Length; j++)
             {
-                if (pos.x + j < 0)
+                if (pos.x + j < 0 || pos.x + j >= _resolution.x)
                 {
                     break;
                 }
 
-             //   Console.WriteLine(i + " <-> " + j);
+                Console.WriteLine(i + " <-> " + j);
                
                 if (sprite[i][j] != ' ')
                 {
@@ -86,7 +89,7 @@ public class GraphicsManager
 
             screen[pos.y + i] = new string(buffer);
             
-        //    RefreshScreen(5);
+            WriteScreen(5);
         }
     }
     
@@ -101,19 +104,14 @@ public class GraphicsManager
        // RefreshScreen(5);
     }
 
-    private string[] Clear()
+    private void ClearScreen()
     {
-        return new[]
+        screen = new String[_resolution.y];
+
+        for (int i = 0; i < screen.Length; i++)
         {
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              ",
-            "                              "
-        };
+            screen[i] = new string(' ',_resolution.x);
+        }
     }
 }
 
