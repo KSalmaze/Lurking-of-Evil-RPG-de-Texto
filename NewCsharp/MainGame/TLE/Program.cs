@@ -9,6 +9,8 @@ namespace TLE
         private static void Main()
         {
             GraphicsManager screen = new GraphicsManager();
+
+            AnimationControler animator = new AnimationControler(screen);
             
             string[] a = new[]
             {
@@ -21,23 +23,19 @@ namespace TLE
                 "   Extras       ",
                 "   Quit         "
             };
-            
             CharObject x = new CharObject(a);
             x.SetPosition(0,0);
-            
-            screen.Print(x);
 
             string[] b = new[]
             {
-                "->            <-"
+                "->             <-"
             };
             CharObject y = new CharObject(b);
-            y.SetPosition(0,3);
+            y.SetPosition(0,4);
             
-            screen.Print(y,1);
-            
+            screen.Print(x);
+            screen.Print(y);
             screen.RefreshScreen();
-            // MainMenu.InitializeMenu();
         }
     }
 }
