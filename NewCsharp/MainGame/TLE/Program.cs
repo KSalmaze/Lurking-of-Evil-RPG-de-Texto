@@ -8,21 +8,37 @@ namespace TLE
     {
         private static void Main()
         {
-            GraphicsManager screen = new GraphicsManager(5,5,2);
+            GraphicsManager screen = new GraphicsManager(1,1,2);
+            Animator animator = new Animator(screen);
 
-            string[] a = new[]
+            string[] framea = new[]
             {
-                "000",
-                "000",
-                "000"
+                "T"
             };
 
-            CharObject x = new CharObject(a);
-            x.SetPosition(0,0);
-            
-            screen.Print(x);
-            
+            string[] frameb = new[]
+            {
+                "R"
+            };
+
+            string[][] frames = new[]
+            {
+                framea,frameb
+            };
+            Animation animacaoa = new Animation("Trouxa", frames);
+
+            AnimatedCharObject objx = new AnimatedCharObject(new Sprite(new []{"X"}));
+            objx.SetPosition(0,0);
+            screen.Print(objx);
             screen.RefreshScreen();
+            
+            objx.AddAnimation(animacaoa);
+            objx.PlayAnimation(animator,"Trouxa");
+            
+            while (true)
+            {
+                
+            }
         }
     }
 }
@@ -32,4 +48,5 @@ namespace TLE
  - Testar os construtores de aquivo em Sprite
  - Testar animações
  - Objetos animados
+ - Verificar se não existem duas animações com o mesmo nome antes de inserir
 */

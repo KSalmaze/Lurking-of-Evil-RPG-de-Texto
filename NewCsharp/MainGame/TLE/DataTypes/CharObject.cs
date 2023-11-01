@@ -1,3 +1,5 @@
+using TLE.ScreenManagement;
+
 namespace TLE.DataTypes;
 
 public class CharObject : Sprite
@@ -6,7 +8,6 @@ public class CharObject : Sprite
 
     public CharObject(string[] sprite) : base(sprite)
     {
-        
     }
 
     public void SetPosition(Vector2 pos)

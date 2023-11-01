@@ -2,25 +2,29 @@ using TLE.DataTypes;
 
 namespace TLE.ScreenManagement;
 
-public class AnimationControler
+public class Animator
 {
     private List<AnimatedCharObject> _objects;
+    private List<Animation> _animations;
     private GraphicsManager _screen;
     
-    public AnimationControler(GraphicsManager screen)
+    public Animator(GraphicsManager screen)
     {
         _screen = screen;
         _objects = new List<AnimatedCharObject>();
+        _animations = new List<Animation>();
+        ExecutarAcaoAIntervalos();
     }
 
-    public void AddObject(AnimatedCharObject obj)
+    public void AddObject(AnimatedCharObject obj,Animation animation)
     {
         _objects.Add(obj);
+        _animations.Add(animation);
     }
     
     public async Task ExecutarAcaoAIntervalos()
     {
-        int intervaloSegundos = 5; // Intervalo desejado em segundos
+        int intervaloSegundos = 2; // Intervalo desejado em segundos
 
         while (true)
         {
@@ -32,9 +36,9 @@ public class AnimationControler
 
     private void UpdateObjectsFrames()
     {
-        foreach (var obj in _objects)
+        for (int i = 0; i < _objects.Count; i++)
         {
-            obj.NextFrame();
+            _objects[i].UpdateSprite(_animations[i].GetFrame());
         }
         
         _screen.RefreshScreen();

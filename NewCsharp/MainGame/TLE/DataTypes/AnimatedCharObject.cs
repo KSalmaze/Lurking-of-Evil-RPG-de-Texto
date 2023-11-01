@@ -1,32 +1,36 @@
+using TLE.ScreenManagement;
+
 namespace TLE.DataTypes;
 
 public class AnimatedCharObject : CharObject
 {
-    private List<Sprite> _frames;
-    private int _currentFrame;
+    private List<Animation> _animations;
+    private Sprite _baseSprite;
 
-    public AnimatedCharObject(Sprite[] frames) : base(new[] { "WWW", "WWW", "WWW" })
+    public AnimatedCharObject(Sprite sprite) : base(sprite.sprite)
     {
-        _frames = new List<Sprite>();
-        
-        for (int i = 0; i < frames.Length; i++)
-        {
-            _frames.Add(frames[i]);
-        }
-
-        sprite = _frames[_currentFrame].sprite;
+        _baseSprite = sprite;
+        _animations = new List<Animation>();
     }
 
-    public void NextFrame()
+    public void AddAnimation(Animation animation)
     {
-        if (_currentFrame < _frames.Count)
-        {
-            _currentFrame++;
-            sprite = _frames[_currentFrame].sprite;
-            return;
-        }
+        _animations.Add(animation);
+    }
 
-        _currentFrame = 0;
-        sprite = _frames[_currentFrame].sprite;
+    public void PlayAnimation(Animator animator,string animation)
+    {
+        foreach (var anim in _animations)
+        {
+            if (anim.Name == animation)
+            {
+                animator.AddObject(this,anim);
+            }
+        }
+    }
+
+    public void UpdateSprite(Sprite newSprite)
+    {
+        sprite = newSprite.sprite;
     }
 }
