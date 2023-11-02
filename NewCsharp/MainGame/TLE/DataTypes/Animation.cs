@@ -4,6 +4,7 @@ public class Animation
 {
     private string _name;
     private int _actualFrame = 0;
+    private char TAG;
     private List<Sprite> _frames;
 
     public Animation(string name, string[][] frames)

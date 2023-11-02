@@ -78,11 +78,11 @@ public class GraphicsManager
                 {
                     if (sprite[i][j] == '^')
                     {
-                        buffer[j] = ' ';
+                        buffer[j + pos.x] = ' ';
                     }
                     else
                     {
-                        buffer[j] = sprite[i][j];
+                        buffer[j + pos.x] = sprite[i][j];
                     }
                 }
             }

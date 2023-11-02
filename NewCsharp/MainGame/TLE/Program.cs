@@ -8,32 +8,30 @@ namespace TLE
     {
         private static void Main()
         {
-            GraphicsManager screen = new GraphicsManager(1,1,2);
-            Animator animator = new Animator(screen);
+            GraphicsManager screen = new GraphicsManager(10,10,3);
 
-            string[] framea = new[]
+            CharObject back = new CharObject(new []
             {
-                "T"
-            };
-
-            string[] frameb = new[]
-            {
-                "R"
-            };
-
-            string[][] frames = new[]
-            {
-                framea,frameb
-            };
-            Animation animacaoa = new Animation("Trouxa", frames);
-
-            AnimatedCharObject objx = new AnimatedCharObject(new Sprite(new []{"X"}));
-            objx.SetPosition(0,0);
-            screen.Print(objx);
-            screen.RefreshScreen();
+                "oooooooooo",
+                "oooooooooo",
+                "oooooooooo",
+                "oooooooooo",
+                "oooooooooo",
+                "oooooooooo",
+                "oooooooooo",
+                "oooooooooo",
+                "oooooooooo",
+                "oooooooooo"
+            });
             
-            objx.AddAnimation(animacaoa);
-            objx.PlayAnimation(animator,"Trouxa");
+            screen.Print(back);
+            
+            CharObject test = new CharObject("T.txt");
+            test.SetPosition(2,2);
+            
+            screen.Print(test,2);
+            
+            screen.RefreshScreen();
             
             while (true)
             {
