@@ -1,2 +1,3 @@
-\NewCsharp\MainGame\TLE\.idea
-\NewCsharp\MainGame\TLE\obj
+\.idea
+\cmake-build-debug
+CMakeLists.txt
