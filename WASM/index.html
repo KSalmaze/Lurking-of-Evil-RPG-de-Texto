@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Jogo em WebAssembly</title>
+</head>
+<body>
+    <h1>Teste de WASM</h1>
+    <script src="a.out.js"></script>
+    <script>
+        // Carrega e executa o módulo WebAssembly
+        fetch('a.out.wasm')
+            .then(response => response.arrayBuffer())
+            .then(bytes => WebAssembly.instantiate(bytes, {}))
+            .then(results => {
+                const instance = results.instance;
+                // Chama a função main() do módulo WebAssembly
+                instance.exports.main();
+            });
+    </script>
+</body>
+</html>
